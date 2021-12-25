@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Queen-s-english-trivia-game-/static/css/main.b9316475.css",
+    "main.js": "/Queen-s-english-trivia-game-/static/js/main.a09e07e5.js",
+    "static/js/787.a4bab215.chunk.js": "/Queen-s-english-trivia-game-/static/js/787.a4bab215.chunk.js",
+    "index.html": "/Queen-s-english-trivia-game-/index.html",
+    "main.b9316475.css.map": "/Queen-s-english-trivia-game-/static/css/main.b9316475.css.map",
+    "main.a09e07e5.js.map": "/Queen-s-english-trivia-game-/static/js/main.a09e07e5.js.map",
+    "787.a4bab215.chunk.js.map": "/Queen-s-english-trivia-game-/static/js/787.a4bab215.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b9316475.css",
+    "static/js/main.a09e07e5.js"
+  ]
+}
