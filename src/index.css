@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: "Luxurious Roman", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: linear-gradient(to right, #e9ebfa, #f8f9fd);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.main-title-div {
+  text-align: center;
+}
+.main-title {
+  font-family: "Pushster", cursive;
+  font-size: 5rem;
+  color: #523eab;
+}
+
+.glow {
+  font-size: 80px;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #367486,
+      0 0 40px #7bdbf9, 0 0 50px #3ccbf7, 0 0 60px #074b5f, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+.parent {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.game {
+  width: 30vw;
+  /* height: 80vh; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, #675df1 10%, #6749cf 100%);
+}
+
+.heading-div {
+  text-align: center;
+  color: #7bdbf9;
+  background-color: rgb(0, 0, 0, 0.2);
+  padding: 10px;
+  box-shadow: 0px 5px 5px #675df1;
+}
+
+.question-div {
+  text-align: center;
+  padding: 60px;
+  color: #f3f6ff;
+}
+
+.answer-div {
+  text-align: center;
+  padding: 10px 60px;
+  color: #f3f6ff;
+}
+.alert-div {
+  padding: 30px 60px;
+}
+.answer {
+  width: 100%;
+}
+.headings-color {
+  color: #f3f6ff;
+}
+
+@media (max-width: 1020px) {
+  .game {
+    width: 90vw;
+    /* height: 80vh; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at center, #675df1 10%, #6749cf 100%);
+  }
+} ;
