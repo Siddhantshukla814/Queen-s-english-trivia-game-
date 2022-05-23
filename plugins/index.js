@@ -71,7 +71,7 @@ export const onPreBuild = async function ({
 }) {
   try {
     // Commands are printed in Netlify logs
-    await run("echo", ["Hello TULLT MON KITTU!\n"]);
+    await run("echo", ["Hello world!\n"]);
   } catch (error) {
     // Report a user error
     build.failBuild("Error message", { error });
@@ -88,23 +88,16 @@ export const onPreBuild = async function ({
 
 // Other available event handlers
 /*
-
 // Before build commands are executed
 export const onPreBuild = function () {}
-
 // Build commands are executed
 export const onBuild = function () {}
-
 // After Build commands are executed
 export const onPostBuild = function () {}
-
 // Runs on build success
 export const onSuccess = function () {}
-
 // Runs on build error
 export const onError = function () {}
-
 // Runs on build error or success
 export const onEnd = function () {}
-
 */
