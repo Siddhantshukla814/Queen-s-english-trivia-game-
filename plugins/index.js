@@ -1,3 +1,1 @@
-export const onPostBuild = function () {
-  console.log("Yehi hai bhai");
-};
+console.log("Yehi hai bhai");
