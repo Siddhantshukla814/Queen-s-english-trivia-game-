@@ -86,10 +86,6 @@ export const onPreBuild = async function ({
   status.show({ summary: "Success!" });
 };
 
-export const onPostBuild = function () {
-  console.log("Yehi hai bhai");
-};
-
 // Other available event handlers
 /*
 
