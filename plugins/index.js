@@ -1,11 +1,10 @@
 // index.js
 
 module.exports = {
-  onPreBuild: ({ netlifyConfig }) => {
-    console.log(netlifyConfig);
-    console.log(netlifyConfig);
-  },
-  onPostBuild: ({ packageJson }) => {
-    console.log(packageJson);
+  onPostBuild: ({ netlifyConfig }) => {
+    console.log(netlifyConfig.build.environment.DEPLOY_PRIME_URL);
+    console.log(
+      "netlifyConfig.build.environment.DEPLOY_PRIME_URL------------------------------------------"
+    );
   },
 };
