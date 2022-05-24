@@ -1,7 +1,9 @@
 const WebPageTest = require("webpagetest");
 const { runTest } = require("./wptHelpers");
 
-const wpt = new WebPageTest("https://www.webpagetest.org", "12581d97-7b8b-4519-b02f-b404f401a973");
+require("dotenv");
+
+const wpt = new WebPageTest("https://www.webpagetest.org", process.env.WPT_API_KEY);
 
 module.exports = {
   onPostBuild: async ({ netlifyConfig }) => {
