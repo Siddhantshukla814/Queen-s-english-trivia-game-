@@ -1,5 +1,5 @@
 const WebPageTest = require("webpagetest");
-const axios = require("axios");
+const { runTest } = require("./wptHelpers");
 
 const wpt = new WebPageTest("https://www.webpagetest.org", "12581d97-7b8b-4519-b02f-b404f401a973");
 
