@@ -16,15 +16,10 @@ module.exports = {
     };
 
     console.log("WPT Test Started");
+    const test = await axios.get(
+      `https://www.webpagetest.org/runtest.php?k=12581d97-7b8b-4519-b02f-b404f401a973&url=${url}&f=json`
+    );
 
-    await runTest(wpt, url, options)
-      .then(async (test) => {
-        if (test) {
-          console.log(test);
-        }
-      })
-      .catch(async (err) => {
-        console.log(err);
-      });
+    console.log(test);
   },
 };
