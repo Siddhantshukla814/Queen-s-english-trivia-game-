@@ -6,7 +6,9 @@ module.exports = {
   onPostBuild: async ({ netlifyConfig }) => {
     //console.log(netlifyConfig.build.environment.DEPLOY_PRIME_URL)
 
-    const urls = [netlifyConfig.build.environment.DEPLOY_PRIME_URL];
+    console.log("Warming Up The WebPageTest");
+
+    const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
 
     let options = {
       firstViewOnly: true,
@@ -14,39 +16,17 @@ module.exports = {
       pollResults: 5,
     };
 
-    const runTest = (wpt, url, options) => {
-      return new Promise((resolve, reject) => {
-        console.log(`Submitting test for ${url}...`);
-        wpt.runTest(url, options, async (err, result) => {
-          try {
-            if (result) {
-              return resolve(result);
-            } else {
-              return reject(err);
-            }
-          } catch (e) {
-            console.info(e);
-          }
-        });
+    try {
+      console.log("WPT Test Started");
+      wpt.runTest(url, options, async (err, result) => {
+        if (!err) {
+          console.log(result);
+        } else {
+          console.log(`Error occured:- ${err}`);
+        }
       });
-    };
-
-    (async function () {
-      Promise.all(
-        urls.map(async (url) => {
-          try {
-            await runTest(wpt, url, options).then(async (result) => {
-              if (result.data) {
-                console.log("asdasdasd");
-              }
-            });
-          } catch (e) {
-            console.error(e);
-          }
-        })
-      ).then(() => {
-        console.info("finalResults");
-      });
-    })();
+    } catch {
+      console.log("Test Failed");
+    }
   },
 };
