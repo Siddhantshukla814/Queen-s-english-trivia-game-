@@ -6,7 +6,7 @@ module.exports = {
   onPostBuild: async ({ netlifyConfig }) => {
     //console.log(netlifyConfig.build.environment.DEPLOY_PRIME_URL)
 
-    const testURL = "https://www.amazon.com";
+    const urls = [netlifyConfig.build.environment.DEPLOY_PRIME_URL];
 
     let options = {
       firstViewOnly: true,
