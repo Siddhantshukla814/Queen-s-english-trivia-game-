@@ -1,4 +1,5 @@
 const WebPageTest = require("webpagetest");
+const axios = require("axios");
 
 const wpt = new WebPageTest("https://www.webpagetest.org", "12581d97-7b8b-4519-b02f-b404f401a973");
 
@@ -16,7 +17,7 @@ module.exports = {
 
     console.log("WPT Test Started");
     const test = await axios.get(
-      "https://www.webpagetest.org/runtest.php?k=12581d97-7b8b-4519-b02f-b404f401a973&url=https://www.amazon.com&f=json"
+      `https://www.webpagetest.org/runtest.php?k=12581d97-7b8b-4519-b02f-b404f401a973&url=${url}&f=json`
     );
 
     console.log(test);
