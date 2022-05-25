@@ -5,7 +5,7 @@ require("dotenv");
 
 module.exports = {
   onPostBuild: async ({ netlifyConfig }) => {
-    console.log("Warming Up The WebPageTest");
+    console.log("🔥🔥Warming Up The WebPageTest🔥🔥");
 
     const wpt = new WebPageTest(
       "https://www.webpagetest.org",
@@ -20,7 +20,7 @@ module.exports = {
       pollResults: 5,
     };
 
-    console.log("WPT Test Started");
+    console.log("WPT Test Started 💨💨💨");
 
     await runTest(wpt, url, options)
       .then(async (test) => {
