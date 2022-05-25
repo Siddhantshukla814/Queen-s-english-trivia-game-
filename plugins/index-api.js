@@ -1,7 +1,7 @@
 const WebPageTest = require("webpagetest");
 const axios = require("axios");
 
-const wpt = new WebPageTest("https://www.webpagetest.org", "12581d97-7b8b-4519-b02f-b404f401a973");
+const wpt = new WebPageTest("https://www.webpagetest.org", process.env.WPT_API_KEY);
 
 module.exports = {
   onPostBuild: async ({ netlifyConfig }) => {

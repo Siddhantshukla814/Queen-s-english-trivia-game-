@@ -9,6 +9,10 @@ module.exports = {
   onPostBuild: async ({ netlifyConfig }) => {
     console.log("Warming Up The WebPageTest");
 
+    console.log("asdadasdasd");
+    console.log(netlifyConfig);
+    console.log("asdadasdasd");
+
     const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
 
     let options = {
