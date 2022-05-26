@@ -25,7 +25,17 @@ module.exports = {
     await runTest(wpt, url, options)
       .then(async (test) => {
         if (test) {
-          console.log(test);
+          console.log(`
+            Scores:
+            TTFB: ${test.result.data.average.firstView["TTFB"]},
+            Start Render: ${test.result.data.average.firstView["render"]},
+            FCP: ${test.result.data.average.firstView["firstContentfulPaint"]},
+            LCP: ${test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"]},
+            CLS: ${test.result.data.average.firstView["chromeUserTiming.CumulativeLayoutShift"]}
+            TBT: ${test.result.data.average.firstView["TotalBlockingTime"]}
+
+            Full WebPageTest results: ${test.result.data.summary}
+          `);
         }
       })
       .catch(async (err) => {
