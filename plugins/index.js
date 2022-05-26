@@ -25,16 +25,17 @@ module.exports = {
     await runTest(wpt, url, options)
       .then(async (test) => {
         if (test) {
-          console.log({
-            TTFB: test.result.data.average.firstView["TTFB"],
-            StartRender:
-              test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
-            FCP: test.result.data.average.firstView["firstContentfulPaint"],
-            LCP: test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
-            CLS: test.result.data.average.firstView["chromeUserTiming.CumulativeLayoutShift"],
-            TBT: test.result.data.average.firstView["TotalBlockingTime"],
-            Full_WebPageTest_Results: test.result.data.summary,
-          });
+          console.log([
+            {
+              TTFB: test.result.data.average.firstView["TTFB"],
+              StartRender: test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
+              FCP: test.result.data.average.firstView["firstContentfulPaint"],
+              LCP: test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
+              CLS: test.result.data.average.firstView["chromeUserTiming.CumulativeLayoutShift"],
+              TBT: test.result.data.average.firstView["TotalBlockingTime"],
+              Full_WebPageTest_Results: test.result.data.summary,
+            },
+          ]);
         }
       })
       .catch(async (err) => {
