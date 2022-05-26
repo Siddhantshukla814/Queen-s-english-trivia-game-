@@ -1,8 +1,6 @@
 const WebPageTest = require("webpagetest");
 const { runTest } = require("./wptHelpers");
 
-require("dotenv");
-
 module.exports = {
   onPostBuild: async ({ netlifyConfig, inputs }) => {
     console.log("🔥🔥Warming Up The WebPageTest🔥🔥");
