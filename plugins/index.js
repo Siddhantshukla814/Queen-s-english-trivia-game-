@@ -25,17 +25,23 @@ module.exports = {
     await runTest(wpt, url, options)
       .then(async (test) => {
         if (test) {
-          console.log(`
-            Scores:
-            TTFB: ${test.result.data.average.firstView["TTFB"]},
-            Start Render: ${test.result.data.average.firstView["render"]},
-            FCP: ${test.result.data.average.firstView["firstContentfulPaint"]},
-            LCP: ${test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"]},
-            CLS: ${test.result.data.average.firstView["chromeUserTiming.CumulativeLayoutShift"]}
-            TBT: ${test.result.data.average.firstView["TotalBlockingTime"]}
-
-            Full WebPageTest results: ${test.result.data.summary}
-          `);
+          console.log(
+            " \n\n Scores: \n\n TTFB:" +
+              test.result.data.average.firstView["TTFB"] +
+              "\n Start Render:" +
+              test.result.data.average.firstView["render"] +
+              "\n FCP:" +
+              test.result.data.average.firstView["firstContentfulPaint"] +
+              "\n LCP:" +
+              test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"] +
+              "\n CLS:" +
+              test.result.data.average.firstView["chromeUserTiming.CumulativeLayoutShift"] +
+              "\n TBT:" +
+              test.result.data.average.firstView["TotalBlockingTime"] +
+              "\n Full WebPageTest results:" +
+              test.result.data.summary +
+              " \n\n"
+          );
         }
       })
       .catch(async (err) => {
