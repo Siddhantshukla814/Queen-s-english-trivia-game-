@@ -2,15 +2,13 @@
 [[plugins]]
 package = "/plugins/index.js"
 
+  # Plugin configuration
+    [plugins.inputs.location]
+    location = "Dulles:Chrome"
+    [plugins.inputs.connectivity]
+    connectivity = "3G"
+    [plugins.inputs.firstViewOnly]
+    firstViewOnly = "true"
 
-  
-
-
-[build]
-# Dummy build command
-command = "echo onBuild"
-
-[build.environment]
-NODE_VERSION = "12.20.0"
 
  
