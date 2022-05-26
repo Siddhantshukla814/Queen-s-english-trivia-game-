@@ -4,7 +4,7 @@ const { runTest } = require("./wptHelpers");
 require("dotenv");
 
 module.exports = {
-  onPostBuild: async ({ netlifyConfig }) => {
+  onPostBuild: async ({ netlifyConfig, inputs }) => {
     console.log("🔥🔥Warming Up The WebPageTest🔥🔥");
 
     const wpt = new WebPageTest(
@@ -15,7 +15,9 @@ module.exports = {
     const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
 
     let options = {
-      firstViewOnly: true,
+      location: inputs.location.location,
+      firstViewOnly: inputs.firstViewOnly.firstViewOnly,
+      connectivity: inputs.connectivity.connectivity,
       runs: 1,
       pollResults: 5,
     };
