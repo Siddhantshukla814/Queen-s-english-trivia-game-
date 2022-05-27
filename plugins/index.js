@@ -2,7 +2,7 @@ const WebPageTest = require("webpagetest");
 const { runTest } = require("./wptHelpers");
 
 module.exports = {
-  onPostBuild: async ({ netlifyConfig, inputs, utils }) => {
+  onPreBuild: async ({ netlifyConfig, inputs, utils }) => {
     console.log("🔥🔥Warming Up The WebPageTest🔥🔥");
 
     const wpt = new WebPageTest("https://www.webpagetest.org", netlifyConfig.build.environment.WPT_API_KEY);
