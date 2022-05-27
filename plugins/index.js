@@ -23,8 +23,6 @@ module.exports = {
       specs: inputs.specs,
     };
 
-    console.log(options);
-
     console.log("WPT Test Started 💨💨💨");
     await runTest(wpt, url, options)
       .then(async (test) => {

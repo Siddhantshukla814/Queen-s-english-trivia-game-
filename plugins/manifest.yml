@@ -36,6 +36,6 @@ inputs:
     required: false
     description: Custom Cpu Throttling
 
-    - name: specs
+  - name: specs
     required: false
     description: Set the specs for performance test suite like creating a budget
