@@ -5,10 +5,27 @@ package = "/plugins/index.js"
   # Plugin configuration
     [plugins.inputs.location]
     location = "Dulles:Chrome"
+
     [plugins.inputs.connectivity]
     connectivity = "3G"
+
     [plugins.inputs.firstViewOnly]
     firstViewOnly = "true"
+    
+    [plugins.inputs.runs]
+    runs = "1"
+
+    [plugins.inputs.emulateMobile]
+    emulateMobile = "true"
+
+    [plugins.inputs.block]
+    block = "https://www.adblock.com"
+
+    [plugins.inputs.lighthouse]
+    lighthouse = "true"
+
+    [plugins.inputs.throttleCPU]
+    throttleCPU = "10"
 
 
  

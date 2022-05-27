@@ -5,10 +5,7 @@ module.exports = {
   onPostBuild: async ({ netlifyConfig, inputs }) => {
     console.log("🔥🔥Warming Up The WebPageTest🔥🔥");
 
-    const wpt = new WebPageTest(
-      "https://www.webpagetest.org",
-      netlifyConfig.build.environment.WPT_API_KEY
-    );
+    const wpt = new WebPageTest("https://www.webpagetest.org", netlifyConfig.build.environment.WPT_API_KEY);
 
     const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
 
@@ -16,7 +13,11 @@ module.exports = {
       location: inputs.location.location,
       firstViewOnly: inputs.firstViewOnly.firstViewOnly,
       connectivity: inputs.connectivity.connectivity,
-      runs: 1,
+      runs: inputs.runs.runs,
+      emulateMobile: inputs.emulateMobile.emulateMobile,
+      block: inputs.block.block,
+      lighthouse: inputs.lighthouse.lighthouse,
+      throttleCPU: inputs.throttleCPU.throttleCPU,
       pollResults: 5,
     };
 
@@ -36,8 +37,7 @@ module.exports = {
           console.log("Your Scores Are Here: ⬇️");
           console.log({
             TTFB: test.result.data.average.firstView["TTFB"],
-            StartRender:
-              test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
+            StartRender: test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
             FCP: test.result.data.average.firstView["firstContentfulPaint"],
             LCP: test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
             CLS: test.result.data.average.firstView["chromeUserTiming.CumulativeLayoutShift"],
