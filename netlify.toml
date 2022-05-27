@@ -3,29 +3,16 @@
 package = "/plugins/index.js"
 
   # Plugin configuration
-    [plugins.inputs.location]
+    [plugins.inputs]
     location = "Dulles:Chrome"
-
-    [plugins.inputs.connectivity]
     connectivity = "3G"
-
-    [plugins.inputs.firstViewOnly]
     firstViewOnly = "true"
-    
-    [plugins.inputs.runs]
     runs = "1"
-
-    [plugins.inputs.emulateMobile]
     emulateMobile = "true"
-
-    [plugins.inputs.block]
     block = "https://www.adblock.com"
-
-    [plugins.inputs.lighthouse]
     lighthouse = "true"
-
-    [plugins.inputs.throttleCPU]
     throttleCPU = "10"
+    specs = '{average: {firstView: {"chromeUserTiming.CumulativeLayoutShift": 0.1,"chromeUserTiming.LargestContentfulPaint": 2500,firstContentfulPaint: 2000,TotalBlockingTime: 0.1,},},}'
 
 
  

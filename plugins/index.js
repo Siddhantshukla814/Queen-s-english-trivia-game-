@@ -2,30 +2,39 @@ const WebPageTest = require("webpagetest");
 const { runTest } = require("./wptHelpers");
 
 module.exports = {
-  onPostBuild: async ({ netlifyConfig, inputs }) => {
+  onPostBuild: async ({ netlifyConfig, inputs, utils }) => {
     console.log("🔥🔥Warming Up The WebPageTest🔥🔥");
 
     const wpt = new WebPageTest("https://www.webpagetest.org", netlifyConfig.build.environment.WPT_API_KEY);
 
-    const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
+    //const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
+    const url = "https://www.amazon.com";
 
     let options = {
-      location: inputs.location.location,
-      firstViewOnly: inputs.firstViewOnly.firstViewOnly,
-      connectivity: inputs.connectivity.connectivity,
-      runs: inputs.runs.runs,
-      emulateMobile: inputs.emulateMobile.emulateMobile,
-      block: inputs.block.block,
-      lighthouse: inputs.lighthouse.lighthouse,
-      throttleCPU: inputs.throttleCPU.throttleCPU,
       pollResults: 5,
+      location: inputs.location,
+      firstViewOnly: inputs.firstViewOnly,
+      connectivity: inputs.connectivity,
+      runs: inputs.runs,
+      emulateMobile: inputs.emulateMobile,
+      block: inputs.block,
+      lighthouse: inputs.lighthouse,
+      throttleCPU: inputs.throttleCPU,
+      specs: inputs.specs,
     };
 
-    console.log("WPT Test Started 💨💨💨");
+    console.log(options);
 
+    console.log("WPT Test Started 💨💨💨");
     await runTest(wpt, url, options)
       .then(async (test) => {
-        if (test) {
+        if (test.err && test.err > 0) {
+          if (test.err == 1) {
+            utils.build.failBuild("Perf Budget failed");
+          } else {
+            utils.build.failBuild("Perf Budget failed");
+          }
+        } else {
           console.log("Config: ⬇️");
           console.log({
             Test_ID: test.result.data.id,
@@ -40,6 +49,7 @@ module.exports = {
             StartRender: test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
             FCP: test.result.data.average.firstView["firstContentfulPaint"],
             LCP: test.result.data.average.firstView["chromeUserTiming.LargestContentfulPaint"],
+            CLS: test.result.data.average.firstView["chromeUserTiming.CumulativeLayoutShift"],
             CLS: test.result.data.average.firstView["chromeUserTiming.CumulativeLayoutShift"],
             TBT: test.result.data.average.firstView["TotalBlockingTime"],
             Full_WebPageTest_Results: test.result.data.summary,

@@ -7,7 +7,6 @@ exports.runTest = (wpt, url, options) => {
         if (result) {
           return resolve({ result: result, err: err });
         } else {
-          console.log(err);
           return reject(err);
         }
       } catch (e) {
