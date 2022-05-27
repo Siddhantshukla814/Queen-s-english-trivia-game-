@@ -20,7 +20,7 @@ module.exports = {
       block: inputs.block,
       lighthouse: inputs.lighthouse,
       throttleCPU: inputs.throttleCPU,
-      specs: inputs.specs,
+      specs: JSON.parse(inputs.specs),
     };
 
     console.log("WPT Test Started 💨💨💨");
