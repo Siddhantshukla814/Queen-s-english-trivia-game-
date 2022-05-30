@@ -4,14 +4,10 @@ exports.runTest = (wpt, url, options) => {
     console.info(`Submitting test for ${url}`);
     wpt.runTest(url, tempOptions, async (err, result) => {
       try {
-        if (result.err && result.err > 0) {
-          if (result.err == 1) {
-            return reject(err);
-          } else {
-            return reject(err);
-          }
-        } else {
+        if (!err) {
           return resolve({ result: result });
+        } else {
+          return reject(err);
         }
       } catch (e) {
         console.info(e);
