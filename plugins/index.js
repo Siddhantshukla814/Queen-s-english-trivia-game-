@@ -48,8 +48,9 @@ module.exports = {
         });
       })
       .catch((error) => {
+        console.log(error);
         utils.build.cancelBuild("Perf Budget failed", { error });
-        //console.log(err);
+        console.log(err);
       });
   },
 };
