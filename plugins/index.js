@@ -29,12 +29,12 @@ module.exports = {
         if (test.err && test.err > 0) {
           if (test.err == 1) {
             //utils.build.failBuild("Perf Budget failed");
-            console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
+            //console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
             utils.build.failBuild("Perf Budget failed");
             utils.build.cancelBuild("Perf Budget failed");
           } else {
             //utils.build.failBuild("Perf Budget failed");
-            console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
+            //console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
             utils.build.failBuild("Perf Budget failed");
             utils.build.cancelBuild("Perf Budget failed");
           }

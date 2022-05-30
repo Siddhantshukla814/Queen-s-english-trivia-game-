@@ -1,6 +1,6 @@
 # Configuration for a local plugin
 [[plugins]]
-package = "/plugins/index.js"
+package = "/plugins/index-test.js"
 
   # Plugin configuration
     [plugins.inputs]
