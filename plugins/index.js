@@ -7,8 +7,8 @@ module.exports = {
 
     const wpt = new WebPageTest("https://www.webpagetest.org", netlifyConfig.build.environment.WPT_API_KEY);
 
-    const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
-    //const url = "https://www.amazon.com";
+    //const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
+    const url = "https://www.amazon.com";
 
     let options = {
       pollResults: 5,
@@ -29,10 +29,12 @@ module.exports = {
         if (test.err && test.err > 0) {
           if (test.err == 1) {
             //utils.build.failBuild("Perf Budget failed");
-            utils.build.cancelBuild("Perf Budget failed");
+            console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
+            utils.build.cancelBuild("Perf Budget failed BC");
           } else {
             //utils.build.failBuild("Perf Budget failed");
-            utils.build.cancelBuild("Perf Budget failed");
+            console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
+            utils.build.cancelBuild("Perf Budget failed BC");
           }
         } else {
           console.log("Config: ⬇️");
