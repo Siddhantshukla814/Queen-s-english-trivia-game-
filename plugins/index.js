@@ -26,7 +26,17 @@ module.exports = {
     console.log("WPT Test Started 💨💨💨");
     await runTest(wpt, url, options)
       .then(async (test) => {
-        if (test) {
+        if (test.err && test.err > 0) {
+          if (test.err == 1) {
+            //utils.build.failBuild("Perf Budget failed");
+            console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
+            utils.build.failBuild("Perf Budget failed");
+          } else {
+            //utils.build.failBuild("Perf Budget failed");
+            console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
+            utils.build.failBuild("Perf Budget failed");
+          }
+        } else {
           console.log("Config: ⬇️");
           console.log({
             Test_ID: test.result.data.id,
@@ -46,18 +56,6 @@ module.exports = {
             TBT: test.result.data.average.firstView["TotalBlockingTime"],
             Full_WebPageTest_Results: test.result.data.summary,
           });
-        }
-
-        if (test.err && test.err > 0) {
-          if (test.err == 1) {
-            //utils.build.failBuild("Perf Budget failed");
-            console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
-            utils.build.cancelBuild("Perf Budget failed");
-          } else {
-            //utils.build.failBuild("Perf Budget failed");
-            console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
-            utils.build.cancelBuild("Perf Budget failed");
-          }
         }
       })
       .catch(async (err) => {
