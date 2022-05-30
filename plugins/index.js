@@ -28,10 +28,10 @@ module.exports = {
       .then(async (test) => {
         if (test.err && test.err > 0) {
           if (test.err == 1) {
-            utils.build.failBuild("Perf Budget failed");
+            //utils.build.failBuild("Perf Budget failed");
             utils.build.cancelBuild("Perf Budget failed");
           } else {
-            utils.build.failBuild("Perf Budget failed");
+            //utils.build.failBuild("Perf Budget failed");
             utils.build.cancelBuild("Perf Budget failed");
           }
         } else {
