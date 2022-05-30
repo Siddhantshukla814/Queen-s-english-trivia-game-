@@ -7,8 +7,8 @@ module.exports = {
 
     const wpt = new WebPageTest("https://www.webpagetest.org", netlifyConfig.build.environment.WPT_API_KEY);
 
-    //const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
-    const url = "https://www.amazon.com";
+    const url = netlifyConfig.build.environment.DEPLOY_PRIME_URL;
+    //const url = "https://www.amazon.com";
 
     let options = {
       pollResults: 5,
@@ -26,7 +26,7 @@ module.exports = {
     console.log("WPT Test Started 💨💨💨");
 
     await runTest(wpt, url, options)
-      .then(async (test) => {
+      .then((test) => {
         console.log("Config: ⬇️");
         console.log({
           Test_ID: test.result.data.id,
@@ -47,7 +47,7 @@ module.exports = {
           Full_WebPageTest_Results: test.result.data.summary,
         });
       })
-      .catch(async (err) => {
+      .catch((err) => {
         console.log("Is this even triggered?");
         utils.build.cancelBuild("Perf Budget failed");
         console.log(err);
