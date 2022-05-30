@@ -48,7 +48,8 @@ module.exports = {
         });
       })
       .catch((error) => {
-        if (error.status === 400) {
+        console.log(error);
+        if (error.status == 400) {
           console.log(error);
           utils.build.cancelBuild("Please Check Your API", { error });
         } else {
