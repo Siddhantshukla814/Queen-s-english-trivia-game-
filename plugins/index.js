@@ -47,8 +47,8 @@ module.exports = {
           Full_WebPageTest_Results: test.result.data.summary,
         });
       })
-      .catch((err) => {
-        utils.build.cancelBuild("Perf Budget failed", err);
+      .catch((error) => {
+        utils.build.cancelBuild("Perf Budget failed", { error });
         //console.log(err);
       });
   },
