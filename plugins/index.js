@@ -48,9 +48,12 @@ module.exports = {
         });
       })
       .catch((error) => {
-        console.log(error);
-        utils.build.cancelBuild("Perf Budget failed", { error });
-        console.log(err);
+        if (error.status === 400) {
+          console.log(error);
+          utils.build.cancelBuild("Please Check Your API", { error });
+        } else {
+          utils.build.cancelBuild("Perf Budget failed", { error });
+        }
       });
   },
 };
