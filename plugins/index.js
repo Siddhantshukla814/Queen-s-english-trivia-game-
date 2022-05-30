@@ -50,7 +50,7 @@ module.exports = {
       .catch((error) => {
         if (error.statusCode == 400) {
           console.log(error);
-          utils.build.cancelBuild("Please Check Your API", { error });
+          utils.build.cancelBuild("Please Update Your API KEY", { error });
         } else {
           utils.build.cancelBuild("Perf Budget failed", { error });
         }
