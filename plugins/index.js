@@ -31,10 +31,12 @@ module.exports = {
             //utils.build.failBuild("Perf Budget failed");
             console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
             utils.build.failBuild("Perf Budget failed");
+            utils.build.cancelBuild("Perf Budget failed");
           } else {
             //utils.build.failBuild("Perf Budget failed");
             console.log("HHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO");
             utils.build.failBuild("Perf Budget failed");
+            utils.build.cancelBuild("Perf Budget failed");
           }
         } else {
           console.log("Config: ⬇️");
