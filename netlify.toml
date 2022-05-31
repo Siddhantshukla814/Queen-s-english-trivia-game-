@@ -4,7 +4,7 @@ package = "/plugins/index.js"
 
   # Plugin configuration
     [plugins.inputs]
-    #urls = "https://www.amazon.com, https://www.flipkart.com"
+    urls = "https://www.amazon.com, https://www.flipkart.com"
     location = "Dulles:Chrome"
     connectivity = "3G"
     firstViewOnly = "true"
