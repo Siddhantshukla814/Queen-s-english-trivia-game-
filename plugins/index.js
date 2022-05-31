@@ -7,7 +7,11 @@ module.exports = {
 
     const wpt = new WebPageTest("https://www.webpagetest.org", netlifyConfig.build.environment.WPT_API_KEY);
 
-    const urlToTest = inputs.urls.length > 0 ? inputs.urls.replaceAll(" ", "").split(",") : [netlifyConfig.build.environment.DEPLOY_PRIME_URL];
+    const urlToTest = inputs.urls
+      ? inputs.urls.length > 0
+        ? inputs.urls.replaceAll(" ", "").split(",")
+        : [netlifyConfig.build.environment.DEPLOY_PRIME_URL]
+      : [netlifyConfig.build.environment.DEPLOY_PRIME_URL];
 
     const finalResults = [];
 
