@@ -4,6 +4,7 @@ package = "/plugins/index.js"
 
   # Plugin configuration
     [plugins.inputs]
+    #urls = "https://www.amazon.com, https://www.flipkart.com"
     location = "Dulles:Chrome"
     connectivity = "3G"
     firstViewOnly = "true"
@@ -12,7 +13,7 @@ package = "/plugins/index.js"
     block = "https://www.adblock.com"
     lighthouse = "true"
     throttleCPU = "10"
-    specs = '{"average": {"firstView": {"chromeUserTiming.CumulativeLayoutShift": 0.1,"chromeUserTiming.LargestContentfulPaint": 2500,"firstContentfulPaint": 2000,"TotalBlockingTime": 0.1}}}'
+  # specs = '{"average": {"firstView": {"chromeUserTiming.CumulativeLayoutShift": 0.1,"chromeUserTiming.LargestContentfulPaint": 2500,"firstContentfulPaint": 2000,"TotalBlockingTime": 0.1}}}'
 
 
  
