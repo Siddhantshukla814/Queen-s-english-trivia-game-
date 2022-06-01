@@ -7,7 +7,7 @@ module.exports = {
       badMethod();
     } catch (error) {
       console.log("222222222222222222222");
-      utils.build.cancelBuild("behenchod", { error });
+      utils.build.cancelBuild("Some ERR", { error });
     }
   },
 };
