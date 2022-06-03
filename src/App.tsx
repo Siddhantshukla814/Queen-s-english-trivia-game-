@@ -39,7 +39,7 @@ function App() {
       <div className="parent">
         <div className="game">
           <div className="main-title-div">
-            <h1 className="main-title glow">Trivia Game ni aata mujhee</h1>
+            <h1 className="main-title glow">Trivia Game</h1>
           </div>
           <div className="heading-div">
             <h2 className="title">Question</h2>
