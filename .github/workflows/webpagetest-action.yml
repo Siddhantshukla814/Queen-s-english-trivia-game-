@@ -8,9 +8,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: WebPageTest
-        uses: Siddhantshukla814/webpagetest-github-action@main
+        uses: Siddhantshukla814/webpagetest-github-action@test
         with:
           apiKey: ${{ secrets.WPT_API_KEY }}
           urls: |
             https://siddhantshukla814.github.io/Queen-s-english-trivia-game-/
           label: "GitHub Action Test"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
